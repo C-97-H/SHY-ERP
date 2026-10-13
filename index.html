@@ -52,7 +52,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(8px);
       display: flex;
       flex-direction: column;
@@ -109,23 +109,174 @@
       50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
     }
 
-    /* 登录界面 */
-    .login-container {
+    /* ================= 升级版现代化工业登录界面 ================= */
+    .login-wrapper {
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 16px;
-      background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 50%, #f8fafc 100%);
+      padding: 24px;
+      position: relative;
+      background: radial-gradient(circle at 10% 20%, #eff6ff 0%, #f8fafc 60%, #e0f2fe 100%);
+      overflow: hidden;
     }
-    .login-box {
+    .login-decor-circle1 {
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(37, 99, 235, 0.15));
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .login-decor-circle2 {
+      position: absolute;
+      bottom: -150px;
+      left: -100px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(16, 185, 129, 0.15));
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .login-main-card {
       width: 100%;
-      max-width: 440px;
+      max-width: 920px;
+      min-height: 520px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8);
+      border-radius: 24px;
+      display: flex;
+      overflow: hidden;
+      z-index: 10;
+      animation: cardAppear 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes cardAppear {
+      from { opacity: 0; transform: translateY(20px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .login-intro-side {
+      flex: 1.1;
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 60%, #1e3a8a 100%);
+      padding: 44px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #ffffff;
+      position: relative;
+    }
+    .intro-header-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 30px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 13px;
+      font-weight: 700;
+      color: #93c5fd;
+    }
+    .intro-title-wrap {
+      margin-top: 24px;
+    }
+    .intro-main-title {
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin: 0 0 8px 0;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .intro-sub-title {
+      font-size: 13px;
+      color: #94a3b8;
+      margin: 0;
+    }
+    .feature-list-group {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .feature-item-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .feature-icon-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .feature-text-head {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 2px;
+    }
+    .feature-text-sub {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .intro-footer-text {
+      font-size: 12px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .login-form-side {
+      flex: 1;
+      padding: 44px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.12);
-      padding: 38px 28px;
-      border-radius: 20px;
+    }
+    .form-heading-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 6px 0;
+    }
+    .form-heading-desc {
+      font-size: 13px;
+      color: #64748b;
+      margin: 0 0 24px 0;
+    }
+    .auth-submit-btn {
+      width: 100%;
+      height: 44px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      border: none;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+      transition: all 0.2s;
+      margin-top: 10px;
+    }
+    .auth-submit-btn:hover {
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+      transform: translateY(-1px);
     }
 
     /* 顶部导航栏 */
@@ -161,7 +312,6 @@
       border-radius: 6px;
     }
 
-    /* 页面分段导航开关 */
     .view-switcher {
       display: flex;
       background: #f1f5f9;
@@ -231,7 +381,6 @@
       color: var(--text-muted);
     }
 
-    /* 批量管理操作浮动条 */
     .batch-bar {
       background: #fff7ed;
       border: 1px solid #fed7aa;
@@ -246,12 +395,6 @@
       animation: fadeIn 0.25s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* 抽屉柜矩阵网格 */
     .drawer-matrix-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -259,7 +402,6 @@
       padding: 10px 0;
     }
 
-    /* 抽屉单元卡片 */
     .drawer-unit {
       background: #ffffff;
       border: 1px solid #e2e8f0;
@@ -288,7 +430,6 @@
       border-color: #fca5a5;
       background: #fff5f5;
     }
-    /* 批量腾空选定态 */
     .drawer-unit.is-selected {
       border: 2px solid #ea580c !important;
       background: #fffaf5 !important;
@@ -318,7 +459,6 @@
       color: #fff;
     }
 
-    /* 拟物金属拉手 */
     .drawer-handle {
       width: 50px;
       height: 5px;
@@ -347,7 +487,6 @@
     .is-empty .drawer-tag { color: #94a3b8; border-style: dashed; }
     .is-out .drawer-tag { color: #dc2626; background: #fee2e2; border-color: #fecaca; }
 
-    /* 呼吸脉冲灯 */
     .pulse-dot {
       width: 7px;
       height: 7px;
@@ -375,7 +514,6 @@
       100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
     }
 
-    /* 卡片上的精美微缩图 */
     .card-thumb-row {
       display: flex;
       gap: 6px;
@@ -389,7 +527,6 @@
       border: 1px solid #e2e8f0;
     }
 
-    /* 卡片上的时间条目 */
     .drawer-time-box {
       margin-top: 8px;
       padding-top: 6px;
@@ -424,7 +561,6 @@
       padding: 0 3px;
     }
 
-    /* 预备上传文件小标签 */
     .ready-upload-badge {
       display: inline-flex;
       align-items: center;
@@ -437,10 +573,7 @@
       margin: 2px 4px 2px 0;
     }
 
-    /* ================= 白色炫酷排行榜风格 ================= */
-    .ranking-page-wrapper {
-      animation: fadeIn 0.35s ease;
-    }
+    .ranking-page-wrapper { animation: fadeIn 0.35s ease; }
     .ranking-banner {
       background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 50%, #eff6ff 100%);
       border: 1px solid #e2e8f0;
@@ -462,11 +595,7 @@
       -webkit-text-fill-color: transparent;
       margin: 0;
     }
-    .rank-cards-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .rank-cards-list { display: flex; flex-direction: column; gap: 12px; }
     .rank-white-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
@@ -491,15 +620,6 @@
       background: linear-gradient(90deg, #fffbeb 0%, #ffffff 100%);
       box-shadow: 0 6px 20px -4px rgba(245, 158, 11, 0.15);
     }
-    .rank-white-card.is-top1::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(254, 240, 138, 0.4), transparent);
-      animation: shimmerSweep 3.5s infinite;
-    }
     .rank-white-card.is-top2 {
       border: 1.5px solid #cbd5e1;
       background: linear-gradient(90deg, #f8fafc 0%, #ffffff 100%);
@@ -509,10 +629,6 @@
       background: linear-gradient(90deg, #fffaf5 0%, #ffffff 100%);
     }
 
-    @keyframes shimmerSweep {
-      0% { left: -100%; }
-      40%, 100% { left: 150%; }
-    }
     @keyframes slideUpFade {
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
@@ -530,10 +646,6 @@
       flex-shrink: 0;
       margin-right: 16px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.25s ease;
-    }
-    .rank-white-card:hover .rank-medal {
-      transform: scale(1.1) rotate(-4deg);
     }
     .medal-1 { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #fff; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35); }
     .medal-2 { background: linear-gradient(135deg, #94a3b8, #64748b); color: #fff; box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3); }
@@ -555,7 +667,23 @@
       position: relative;
     }
 
-    /* 底部版权 */
+    .cooldown-alert-box {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+    .cooldown-target-card {
+      background: #ffffff;
+      border: 1px solid #fda4af;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
     .site-footer {
       text-align: center;
       padding: 24px 14px 28px 14px;
@@ -567,50 +695,21 @@
       letter-spacing: 0.3px;
     }
 
-    /* 手机端适配 */
-    @media (max-width: 768px) {
-      .top-header {
-        padding: 10px 14px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-      }
+    @media (max-width: 860px) {
+      .login-main-card { flex-direction: column; max-width: 440px; min-height: auto; }
+      .login-intro-side { padding: 28px 24px; }
+      .feature-list-group { display: none; }
+      .login-form-side { padding: 30px 24px; }
+      .top-header { padding: 10px 14px; flex-direction: column; align-items: stretch; gap: 10px; }
       .brand-logo { justify-content: space-between; }
-      .header-actions {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
-        width: 100%;
-      }
-      .header-actions .el-button {
-        width: 100%;
-        margin: 0 !important;
-        font-size: 12px;
-        padding: 8px 4px;
-      }
-      .user-info-bar {
-        grid-column: span 2;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 4px;
-      }
-      .main-body {
-        padding: 0 10px;
-        margin: 10px auto;
-      }
-      .stats-row {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
+      .header-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; width: 100%; }
+      .header-actions .el-button { width: 100%; margin: 0 !important; font-size: 12px; padding: 8px 4px; }
+      .user-info-bar { grid-column: span 2; display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+      .main-body { padding: 0 10px; margin: 10px auto; }
+      .stats-row { grid-template-columns: 1fr 1fr; gap: 8px; }
       .drawer-matrix-grid { grid-template-columns: 1fr; }
-      .toolbar-box {
-        flex-direction: column;
-        align-items: stretch !important;
-      }
-      .toolbar-box .el-input, .toolbar-box .el-select {
-        width: 100% !important;
-      }
+      .toolbar-box { flex-direction: column; align-items: stretch !important; }
+      .toolbar-box .el-input, .toolbar-box .el-select { width: 100% !important; }
     }
   </style>
 </head>
@@ -627,32 +726,107 @@
       <div class="loader-text">{{ loadingText }}</div>
     </div>
 
-    <!-- 1. 登录模块 -->
-    <div v-if="!user" class="login-container">
-      <div class="login-box">
-        <div style="text-align: center; margin-bottom: 22px;">
-          <div style="font-size: 32px; margin-bottom: 4px;">🏢</div>
-          <h2 style="margin: 0; color: #0f172a; font-weight: 800; font-size: 19px;">深圳市三合一五金有限公司ERP系统</h2>
-          <p style="font-size: 13px; color: #64748b; margin-top: 6px;">智能模具资产矩阵抽屉柜中控台</p>
+    <!-- 1. 全新工业风登录界面（已完全关闭前台自主注册） -->
+    <div v-if="!user" class="login-wrapper">
+      <div class="login-decor-circle1"></div>
+      <div class="login-decor-circle2"></div>
+
+      <div class="login-main-card">
+        <!-- 左侧：企业品牌及优势 -->
+        <div class="login-intro-side">
+          <div>
+            <div class="intro-header-logo">
+              <span>🏢</span>
+              <span>SHY HARDWARE ERP</span>
+            </div>
+
+            <div class="intro-title-wrap">
+              <h1 class="intro-main-title">深圳市三合一五金有限公司</h1>
+              <p class="intro-sub-title">智能模具资产矩阵抽屉柜数字化管控平台</p>
+            </div>
+
+            <div class="feature-list-group">
+              <div class="feature-item-row">
+                <div class="feature-icon-badge">🗄️</div>
+                <div>
+                  <div class="feature-text-head">矩阵式抽屉中控</div>
+                  <div class="feature-text-sub">实时掌握库位闭合、出入库借调与全套工程图纸</div>
+                </div>
+              </div>
+
+              <div class="feature-item-row">
+                <div class="feature-icon-badge">☁️</div>
+                <div>
+                  <div class="feature-text-head">多端云端协同冷静期</div>
+                  <div class="feature-text-sub">清出模具进入云端回收箱，支持跨设备随时撤销还原</div>
+                </div>
+              </div>
+
+              <div class="feature-item-row">
+                <div class="feature-icon-badge">🔒</div>
+                <div>
+                  <div class="feature-text-head">车间资产严格受控</div>
+                  <div class="feature-text-sub">已关闭外部注册，仅限车间授权管理员凭专属账号登录</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="intro-footer-text">
+            <span>内部车间专属受控系统</span>
+            <span>v2.7 云端协同版</span>
+          </div>
         </div>
 
-        <el-form label-position="top">
-          <el-form-item label="管理员账号 / 邮箱">
-            <el-input v-model="authForm.email" placeholder="输入邮箱账号" size="large"></el-input>
-          </el-form-item>
-          <el-form-item label="登录密码">
-            <el-input v-model="authForm.password" type="password" show-password placeholder="输入密码" size="large" @keyup.enter="handleLogin"></el-input>
-          </el-form-item>
-          
-          <el-button type="primary" size="large" style="width: 100%; margin-top: 14px; font-weight: 700; border-radius: 8px;" :loading="authLoading" @click="handleLogin">
-            登 录 进 入 柜 位
-          </el-button>
-          
-          <div style="margin-top: 14px; display: flex; justify-content: space-between; font-size: 12px;">
-            <span style="color: #94a3b8;">内部车间受控系统</span>
-            <el-button link type="primary" size="small" @click="handleRegister">首次注册账号</el-button>
+        <!-- 右侧：受控登录表单 -->
+        <div class="login-form-side">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+            <h2 class="form-heading-title">管理员身份验证</h2>
+            <el-tag size="small" type="info" round effect="plain">内部受控</el-tag>
           </div>
-        </el-form>
+          <p class="form-heading-desc">请输入车间授权账号及密码登入柜位中控台</p>
+
+          <el-form label-position="top">
+            <el-form-item label="管理员账号 / 邮箱">
+              <el-input 
+                v-model="authForm.email" 
+                placeholder="输入授权邮箱账号" 
+                size="large"
+                clearable>
+                <template #prefix><span>📧</span></template>
+              </el-input>
+            </el-form-item>
+
+            <el-form-item label="登录密码">
+              <el-input 
+                v-model="authForm.password" 
+                type="password" 
+                show-password 
+                placeholder="输入安全登录密码" 
+                size="large" 
+                @keyup.enter="handleLogin">
+                <template #prefix><span>🔒</span></template>
+              </el-input>
+            </el-form-item>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0 16px 0; font-size: 13px;">
+              <el-checkbox v-model="rememberAccount" label="记住当前账号"></el-checkbox>
+              <span style="color: #94a3b8; font-size: 12px;">SSL 传输加密</span>
+            </div>
+
+            <el-button 
+              type="primary" 
+              class="auth-submit-btn" 
+              :loading="authLoading" 
+              @click="handleLogin">
+              登 录 进 入 柜 位
+            </el-button>
+          </el-form>
+
+          <div style="margin-top: 24px; padding: 12px; background: #f8fafc; border-radius: 10px; border: 1px dashed #cbd5e1; font-size: 12px; color: #64748b; line-height: 1.6;">
+            ⚠️ <b>自主注册通道已停用</b>：系统现已转入车间安全受控模式。如需开通新工号或重置密码，请联系车间系统主管在控制台分配。
+          </div>
+        </div>
       </div>
     </div>
 
@@ -663,12 +837,11 @@
           <span style="font-size: 20px;">🏢</span>
           <div style="display: flex; flex-direction: column;">
             <span style="font-weight: 800; font-size: 15px; color: #0f172a;">深圳市三合一五金有限公司ERP系统</span>
-            <span style="font-size: 11px; color: #64748b; font-weight: normal;">智能模具矩阵中控管理</span>
+            <span style="font-size: 11px; color: #64748b; font-weight: normal;">智能模具矩阵中控管理 (云协同)</span>
           </div>
           <span class="brand-tag">PRO</span>
         </div>
 
-        <!-- 页面视图切换器 -->
         <div class="view-switcher">
           <div :class="['view-btn', currentView === 'matrix' ? 'active' : '']" @click="currentView = 'matrix'">
             🗄️ 抽屉柜矩阵
@@ -680,9 +853,18 @@
 
         <div class="header-actions">
           <el-button type="primary" plain size="small" @click="openExpandDialog">➕ 添加新抽屉柜位</el-button>
+          
           <el-button :type="batchClearMode ? 'danger' : 'warning'" plain size="small" @click="toggleBatchClearMode">
             {{ batchClearMode ? '✖️ 退出批量' : '🧹 批量腾空模具' }}
           </el-button>
+
+          <!-- 云端冷静期回收暂存箱按钮（多电脑实时同步） -->
+          <el-badge :value="recycleBin.length" :hidden="recycleBin.length === 0" type="primary">
+            <el-button size="small" type="info" plain @click="showRecycleDrawer = true">
+              ☁️ 云端冷静暂存箱
+            </el-button>
+          </el-badge>
+
           <el-button type="info" plain size="small" @click="openAuditLogsDialog(null)">📜 检索流转日志</el-button>
           <el-button type="success" plain size="small" :loading="exporting" @click="exportZipBackup">📦 导出全景</el-button>
           
@@ -701,7 +883,6 @@
 
         <!-- ================= 视图 A：抽屉柜矩阵管理 ================= -->
         <div v-show="currentView === 'matrix'">
-          <!-- 指标看板 -->
           <div class="stats-row">
             <div class="stat-card">
               <div>
@@ -733,26 +914,22 @@
             </div>
           </div>
 
-          <!-- 批量腾空提示操作栏 -->
           <div v-if="batchClearMode" class="batch-bar">
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="font-weight: 800; color: #c2410c; font-size: 14px;">🧹 批量腾出/清空模具模式</span>
-              <span style="font-size: 12px; color: #7c2d12;">已勾选 <b>{{ selectedDrawerIds.length }}</b> 个柜位 (柜位保留，仅腾空内容物)</span>
+              <span style="font-size: 12px; color: #7c2d12;">已勾选 <b>{{ selectedDrawerIds.length }}</b> 个柜位 (清出后模具将转移至云端暂存箱，全厂多端均可撤销恢复)</span>
             </div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
               <el-button size="small" @click="selectAllOccupiedOnPage">选择本页所有有模柜</el-button>
               <el-button size="small" @click="clearDrawerSelection">清空已选</el-button>
-              <el-button type="danger" size="small" :disabled="selectedDrawerIds.length === 0" :loading="submitting" @click="executeBatchClearDrawers">
+              <el-button type="danger" size="small" :disabled="selectedDrawerIds.length === 0" :loading="submitting" @click="openBatchClearCooldownDialog">
                 🧹 确认腾空已选 ({{ selectedDrawerIds.length }})
               </el-button>
               <el-button size="small" @click="toggleBatchClearMode">退出</el-button>
             </div>
           </div>
 
-          <!-- 抽屉柜主控面板 -->
           <el-card shadow="never" style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 14px;">
-            
-            <!-- 工具栏 -->
             <div class="toolbar-box" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px;">
               <div style="display: flex; gap: 8px; flex-wrap: wrap; width: 100%;">
                 <el-input 
@@ -774,7 +951,6 @@
               </div>
             </div>
 
-            <!-- 抽屉柜矩阵区 -->
             <div class="drawer-matrix-grid">
               <div 
                 v-for="mold in paginatedMolds" 
@@ -804,7 +980,6 @@
                     </el-tag>
                   </div>
 
-                  <!-- 模具简述 -->
                   <div v-if="mold.status !== '空置'" style="margin: 8px 0; font-size: 13px;">
                     <div style="font-weight: 700; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" :title="mold.product_name">
                       📦 {{ mold.product_name }}
@@ -813,7 +988,6 @@
                       🏢 客户：{{ mold.customer_name }}
                     </div>
 
-                    <!-- 卡片微缩图快速预览 -->
                     <div v-if="getFiles(mold.product_img_url).length > 0" class="card-thumb-row">
                       <img 
                         v-for="(item, imgIdx) in getFiles(mold.product_img_url).slice(0, 3)" 
@@ -836,7 +1010,6 @@
                     </div>
                   </div>
 
-                  <!-- 完整时间节点条目 -->
                   <div class="drawer-time-box">
                     <div v-if="mold.status !== '空置'" style="display: flex; justify-content: space-between;">
                       <span>📥 入柜建档:</span>
@@ -857,7 +1030,6 @@
                   </div>
                 </div>
 
-                <!-- 底部交互提示 -->
                 <div style="display: flex; justify-content: space-between; font-size: 12px; color: #2563eb; font-weight: 600; margin-top: 8px;">
                   <span v-if="batchClearMode" style="color: #ea580c;">
                     {{ mold.status === '空置' ? '⚪ 空柜无需腾空' : (selectedDrawerIds.includes(mold.id) ? '✓ 已选准备腾出' : '○ 点击勾选腾空') }}
@@ -875,7 +1047,6 @@
               未检索到抽屉柜！如需更多柜位，请点击顶部【添加新抽屉柜位】。
             </div>
 
-            <!-- 分页器 -->
             <div style="display: flex; justify-content: center; margin-top: 16px;">
               <el-pagination
                 v-model:current-page="currentPage"
@@ -966,7 +1137,7 @@
 
       </main>
 
-      <!-- 弹窗 1：查看详情 (含完整图片相册与履历) -->
+      <!-- 弹窗 1：查看详情 -->
       <el-dialog 
         v-model="showDetailDialog" 
         :title="'🗄️ [ #' + activeDrawer.mold_code + ' 号抽屉柜 ] 内部全景与档案'" 
@@ -1025,7 +1196,6 @@
 
         <el-divider style="margin: 14px 0;"></el-divider>
 
-        <!-- 产品与模具图片区 -->
         <div>
           <div style="font-size: 14px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">📷 存放图片快照与样品展示</div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
@@ -1079,7 +1249,6 @@
 
         <el-divider style="margin: 14px 0;"></el-divider>
 
-        <!-- 本柜历史日志流水 -->
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
             <div style="font-size: 14px; font-weight: 700; color: #1e293b;">📜 本抽屉近期流转履历</div>
@@ -1111,7 +1280,7 @@
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
             <div style="display: flex; gap: 6px;">
               <el-button type="primary" plain size="small" @click="openEditDialog(activeDrawer)">✏️ 修改档案</el-button>
-              <el-button type="danger" plain size="small" @click="openSingleClearDialog(activeDrawer)">🧹 腾空柜子 (清出模具)</el-button>
+              <el-button type="danger" plain size="small" @click="openSingleClearCooldownDialog(activeDrawer)">🧹 腾空柜子 (安全冷静期)</el-button>
             </div>
 
             <div style="display: flex; gap: 6px;">
@@ -1135,6 +1304,114 @@
         </template>
       </el-dialog>
 
+      <!-- 冷静期安全确认弹窗 (倒计时 + 防呆口令) -->
+      <el-dialog 
+        v-model="showCooldownDialog" 
+        :title="'⚠️ 模具腾空安全确认【' + cooldownModeText + '】'" 
+        width="90%" 
+        style="max-width: 540px; border-radius: 16px;" 
+        :close-on-click-modal="false"
+        :close-on-press-escape="false"
+        align-center>
+        
+        <div class="cooldown-alert-box">
+          <div style="font-weight: 800; color: #be123c; font-size: 14px; display: flex; align-items: center; gap: 6px;">
+            <span>🛡️ 云端资产防护机制：强制冷静防误删核验</span>
+          </div>
+          <div style="font-size: 12px; color: #9f1239; margin-top: 4px; line-height: 1.6;">
+            模具一旦清出，抽屉将变更为【空置】。已自动启动 <b>{{ cooldownRemainSeconds }} 秒强制冷静期</b>。
+            数据清除后，档案将<b>自动同步至云端回收站</b>，全厂多位管理员在任何电脑上均可撤销还原！
+          </div>
+        </div>
+
+        <div v-if="cooldownTargetMolds.length === 1" class="cooldown-target-card">
+          <div><b>柜位编号：</b> #{{ cooldownTargetMolds[0].mold_code }} 号抽屉</div>
+          <div><b>模具名称：</b> {{ cooldownTargetMolds[0].product_name }}</div>
+          <div><b>客户名称：</b> {{ cooldownTargetMolds[0].customer_name || '未登记' }}</div>
+          <div><b>图纸附件：</b> CAD({{ getFiles(cooldownTargetMolds[0].cad_file_url).length }}) / 3D({{ getFiles(cooldownTargetMolds[0].stp_file_url).length }})</div>
+        </div>
+        <div v-else class="cooldown-target-card">
+          <div><b>批量清退柜位总数：</b> {{ cooldownTargetMolds.length }} 个柜位</div>
+          <div style="color: #64748b; font-size: 12px; margin-top: 4px; max-height: 80px; overflow-y: auto;">
+            涉及柜号：{{ cooldownTargetMolds.map(m => '#' + m.mold_code).join('、') }}
+          </div>
+        </div>
+
+        <div style="margin: 14px 0;">
+          <div style="font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">
+            请输入安全校验词 <b style="color: #e11d48; user-select: all;">{{ cooldownExpectedWord }}</b> 以确认：
+          </div>
+          <el-input 
+            v-model="cooldownInputWord" 
+            :placeholder="'请输入 ' + cooldownExpectedWord" 
+            clearable>
+          </el-input>
+        </div>
+
+        <template #footer>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <el-button size="small" @click="closeCooldownDialog">取消返回</el-button>
+            <div style="display: flex; gap: 8px;">
+              <el-button 
+                type="danger" 
+                :disabled="cooldownRemainSeconds > 0 || cooldownInputWord.trim() !== cooldownExpectedWord"
+                :loading="submitting"
+                @click="executeConfirmedClear">
+                {{ cooldownRemainSeconds > 0 ? ('冷静期思考中 (' + cooldownRemainSeconds + 's)') : '确认腾出柜位' }}
+              </el-button>
+            </div>
+          </div>
+        </template>
+      </el-dialog>
+
+      <!-- 云端冷静期暂存回收箱（多电脑多人云端协同） -->
+      <el-drawer v-model="showRecycleDrawer" title="☁️ 模具清出云端冷静暂存箱 (多端协同)" size="90%" style="max-width: 540px;">
+        <div style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.6;">
+          云端回收站已开启，所有管理员腾空的模具均汇集在此。
+          如需撤回误删操作，任何一台电脑上的管理员均可点击<b>【🔄 还原回柜】</b>无损复原模具档案！
+        </div>
+
+        <div v-if="recycleBin.length === 0" style="text-align: center; color: #94a3b8; margin-top: 60px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">☁️</div>
+          云端回收箱暂无被腾出的模具
+        </div>
+
+        <el-card 
+          v-for="item in recycleBin" 
+          :key="item.id" 
+          style="margin-bottom: 12px; border-radius: 12px; border-color: #f1f5f9;" 
+          shadow="hover">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div style="flex: 1; padding-right: 12px;">
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-weight: 800; color: #0f172a; font-size: 14px;">{{ item.product_name || '未命名产品' }}</span>
+                <el-tag size="small" type="info">原 #{{ item.mold_code }} 柜</el-tag>
+              </div>
+              <div style="font-size: 12px; color: #64748b; margin-top: 4px;">客户：{{ item.customer_name || '无' }}</div>
+              <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">
+                腾空经办: {{ item.operator || '系统' }} | 时间: {{ formatDate(item.deleted_at) }}
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <el-button size="small" type="success" plain :loading="submitting" @click="restoreMoldFromRecycle(item)">
+                🔄 还原回柜
+              </el-button>
+              <el-button size="small" type="danger" text @click="permanentlyRemoveFromRecycle(item.id)">
+                彻底销毁
+              </el-button>
+            </div>
+          </div>
+        </el-card>
+
+        <template #footer>
+          <div v-if="recycleBin.length > 0" style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 12px; color: #94a3b8;">云端共有 {{ recycleBin.length }} 条被清退模具快照</span>
+            <el-button size="small" type="danger" plain @click="clearAllRecycleBin">清空云端暂存箱</el-button>
+          </div>
+        </template>
+      </el-drawer>
+
       <!-- 弹窗 2：高阶日志检索与审计中心 -->
       <el-dialog v-model="showAuditLogModal" title="📜 模具仓储操作流水与审计日志" width="92%" style="max-width: 900px; border-radius: 16px;" align-center>
         <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; align-items: center;">
@@ -1154,6 +1431,7 @@
             <el-option label="入库归还" value="入库"></el-option>
             <el-option label="模具入柜建档" value="模具初次入柜建档"></el-option>
             <el-option label="腾空清出" value="模具腾空清出"></el-option>
+            <el-option label="冷静期恢复" value="冷静期撤销恢复"></el-option>
             <el-option label="档案资料更新" value="档案资料更新"></el-option>
           </el-select>
 
@@ -1211,7 +1489,7 @@
         </div>
 
         <div style="background: #f1f5f9; padding: 10px; border-radius: 8px; font-size: 12px; color: #334155;">
-          预计生成柜号：<b>#{{ currentMaxDrawerNo + 1 }}</b> ~ <b>#{{ currentMaxDrawerNo + expandCount }}</b> 号柜（生成后为空置状态，随时可放入模具）
+          预计生成柜号：<b>#{{ currentMaxDrawerNo + 1 }}</b> ~ <b>#{{ currentMaxDrawerNo + expandCount }}</b> 号柜（生成后为空置状态）
         </div>
 
         <template #footer>
@@ -1321,7 +1599,7 @@
         </template>
       </el-dialog>
 
-      <!-- 弹窗 5：向空置柜放入新模具 -->
+      <!-- 弹窗 5：放入新模具 -->
       <el-dialog 
         v-model="showPutDialog" 
         :title="'📥 向 [ #' + editMold.mold_code + ' 号抽屉柜 ] 放入模具'" 
@@ -1430,7 +1708,7 @@
             </div>
             <div style="display: flex; flex-direction: column; gap: 4px;">
               <el-button size="small" type="primary" plain @click="openDrawerFromDead(item)">查看</el-button>
-              <el-button size="small" type="danger" @click="openSingleClearDialog(item)">🧹 腾空</el-button>
+              <el-button size="small" type="danger" @click="openSingleClearCooldownDialog(item)">🧹 腾空</el-button>
             </div>
           </div>
         </el-card>
@@ -1464,6 +1742,7 @@
         setup() {
           const user = ref(null);
           const authLoading = ref(false);
+          const rememberAccount = ref(true);
           const authForm = ref({ email: '', password: '' });
 
           const currentView = ref('matrix');
@@ -1488,6 +1767,16 @@
           const showLogDialog = ref(false);
           const showDeadDrawer = ref(false);
           const showAuditLogModal = ref(false);
+
+          // 云端冷静期机制相关变量
+          const showCooldownDialog = ref(false);
+          const showRecycleDrawer = ref(false);
+          const cooldownTargetMolds = ref([]);
+          const cooldownRemainSeconds = ref(5);
+          const cooldownInputWord = ref('');
+          const cooldownExpectedWord = ref('');
+          const cooldownTimer = ref(null);
+          const recycleBin = ref([]);
 
           const logFilterDrawerId = ref(null);
           const logFilterDateRange = ref(null);
@@ -1527,7 +1816,12 @@
 
           const currentLog = ref({ mold_id: null, mold_code: '', operator: '', remarks: '' });
 
-          // 核心兼容解析函数：兼容旧格式纯 URL 字符串与新格式 { url, name } 对象
+          const cooldownModeText = computed(() => {
+            return cooldownTargetMolds.value.length === 1 
+              ? `#${cooldownTargetMolds.value[0].mold_code} 号单柜腾空` 
+              : `批量腾空 (${cooldownTargetMolds.value.length}个柜位)`;
+          });
+
           const getFiles = (field) => {
             if (!field) return [];
             let list = [];
@@ -1763,71 +2057,86 @@
             selectedDrawerIds.value = [];
           };
 
-          const executeBatchClearDrawers = async () => {
-            if (selectedDrawerIds.value.length === 0) return;
-            const targetMolds = molds.value.filter(m => selectedDrawerIds.value.includes(m.id));
-
-            ElementPlus.ElMessageBox.confirm(
-              `确定清空并腾出选中的 ${targetMolds.length} 个柜位中的模具吗？\n注意：抽屉柜位将完整保留并恢复为空置状态，仅清出模具资料。`,
-              '批量腾空确认',
-              {
-                confirmButtonText: '确认腾空所选柜子',
-                cancelButtonText: '取消',
-                type: 'warning'
+          /* ===== 核心冷静期控制逻辑 ===== */
+          const startCooldownTimer = () => {
+            if (cooldownTimer.value) clearInterval(cooldownTimer.value);
+            cooldownRemainSeconds.value = 5;
+            cooldownTimer.value = setInterval(() => {
+              if (cooldownRemainSeconds.value > 0) {
+                cooldownRemainSeconds.value -= 1;
+              } else {
+                clearInterval(cooldownTimer.value);
+                cooldownTimer.value = null;
               }
-            ).then(async () => {
-              submitting.value = true;
-              try {
-                const opName = user.value ? (user.value.email.split('@')[0] || '') : '管理员';
-
-                for (const mold of targetMolds) {
-                  const emptyPayload = {
-                    id: mold.id,
-                    mold_code: mold.mold_code,
-                    customer_name: '',
-                    product_name: '',
-                    material_thickness: '',
-                    remarks: '',
-                    product_img_url: '[]',
-                    mold_img_url: '[]',
-                    cad_file_url: '[]',
-                    stp_file_url: '[]',
-                    status: '空置'
-                  };
-                  await dbClient.from('molds').upsert(emptyPayload);
-
-                  await dbClient.from('mold_logs').insert([{
-                    mold_id: mold.id,
-                    action_type: '模具腾空清出',
-                    operator: opName,
-                    remarks: `[原模具: ${mold.product_name || '未命名'} | 客户: ${mold.customer_name || '无'}] 已被批量腾空移出，柜子 #${mold.mold_code} 恢复空置`
-                  }]);
-                }
-
-                ElementPlus.ElMessage.success(`成功腾空 ${targetMolds.length} 个柜位模具，柜号全部保留！`);
-                selectedDrawerIds.value = [];
-                batchClearMode.value = false;
-                await fetchData();
-              } catch (e) {
-                ElementPlus.ElMessage.error('批量腾空失败: ' + e.message);
-              } finally {
-                submitting.value = false;
-              }
-            }).catch(() => {});
+            }, 1000);
           };
 
-          const openSingleClearDialog = (mold) => {
-            ElementPlus.ElMessageBox.confirm(
-              `确定清空【#${mold.mold_code} 号抽屉柜】内的模具吗？\n（柜位将完整保留，状态变更为【空置】）`,
-              '模具腾空清出确认',
-              {
-                confirmButtonText: '确认腾出柜位',
-                cancelButtonText: '取消',
-                type: 'warning'
-              }
-            ).then(async () => {
-              submitting.value = true;
-              try {
+          const closeCooldownDialog = () => {
+            if (cooldownTimer.value) {
+              clearInterval(cooldownTimer.value);
+              cooldownTimer.value = null;
+            }
+            showCooldownDialog.value = false;
+            cooldownTargetMolds.value = [];
+            cooldownInputWord.value = '';
+          };
+
+          const openSingleClearCooldownDialog = (mold) => {
+            cooldownTargetMolds.value = [{ ...mold }];
+            cooldownExpectedWord.value = String(mold.mold_code).replace(/^#/, '');
+            cooldownInputWord.value = '';
+            showCooldownDialog.value = true;
+            startCooldownTimer();
+          };
+
+          const openBatchClearCooldownDialog = () => {
+            if (selectedDrawerIds.value.length === 0) return;
+            const targetMolds = molds.value.filter(m => selectedDrawerIds.value.includes(m.id));
+            cooldownTargetMolds.value = targetMolds.map(m => ({ ...m }));
+            cooldownExpectedWord.value = '确认';
+            cooldownInputWord.value = '';
+            showCooldownDialog.value = true;
+            startCooldownTimer();
+          };
+
+          // 执行冷静期确认后的腾空逻辑：直接写入 Supabase 云端表 mold_recycle_bin
+          const executeConfirmedClear = async () => {
+            if (cooldownInputWord.value.trim() !== cooldownExpectedWord.value) {
+              return ElementPlus.ElMessage.warning(`请输入正确的校验口令 [${cooldownExpectedWord.value}]`);
+            }
+            if (cooldownRemainSeconds.value > 0) {
+              return ElementPlus.ElMessage.warning('冷静期倒计时中，请稍后确认');
+            }
+
+            submitting.value = true;
+            try {
+              const opName = user.value ? (user.value.email.split('@')[0] || '') : '管理员';
+              const targetList = [...cooldownTargetMolds.value];
+              const nowIso = new Date().toISOString();
+
+              for (const mold of targetList) {
+                // 1. 写入云端 mold_recycle_bin 回收站表
+                const recyclePayload = {
+                  mold_id: String(mold.id),
+                  mold_code: mold.mold_code,
+                  customer_name: mold.customer_name || '',
+                  product_name: mold.product_name || '',
+                  material_thickness: mold.material_thickness || '',
+                  remarks: mold.remarks || '',
+                  product_img_url: mold.product_img_url || '[]',
+                  mold_img_url: mold.mold_img_url || '[]',
+                  cad_file_url: mold.cad_file_url || '[]',
+                  stp_file_url: mold.stp_file_url || '[]',
+                  deleted_at: nowIso,
+                  operator: opName
+                };
+
+                const { error: recErr } = await dbClient.from('mold_recycle_bin').insert([recyclePayload]);
+                if (recErr) {
+                  console.warn('云端回收站写入警告:', recErr.message);
+                }
+
+                // 2. 将后端抽屉重置为空置
                 const emptyPayload = {
                   id: mold.id,
                   mold_code: mold.mold_code,
@@ -1841,31 +2150,122 @@
                   stp_file_url: '[]',
                   status: '空置'
                 };
-                const { error } = await dbClient.from('molds').upsert(emptyPayload);
-                if (error) throw error;
+                await dbClient.from('molds').upsert(emptyPayload);
 
-                const opName = user.value ? (user.value.email.split('@')[0] || '') : '管理员';
+                // 3. 记录流水
                 await dbClient.from('mold_logs').insert([{
                   mold_id: mold.id,
                   action_type: '模具腾空清出',
                   operator: opName,
-                  remarks: `[原模具: ${mold.product_name} | 客户: ${mold.customer_name}] 已腾空移出，抽屉重置为空置`
+                  remarks: `[原模具: ${mold.product_name || '未命名'} | 客户: ${mold.customer_name || '无'}] 已通过冷静期确认清出，资料已移入云端暂存箱`
                 }]);
-
-                ElementPlus.ElMessage.success(`已清空 #${mold.mold_code} 号抽屉！柜子已重置为空置。`);
-                showDetailDialog.value = false;
-                showDeadDrawer.value = false;
-                await fetchData();
-              } catch (e) {
-                ElementPlus.ElMessage.error('腾空失败: ' + e.message);
-              } finally {
-                submitting.value = false;
               }
-            }).catch(() => {});
+
+              closeCooldownDialog();
+              showDetailDialog.value = false;
+              showDeadDrawer.value = false;
+              selectedDrawerIds.value = [];
+              batchClearMode.value = false;
+
+              await fetchData();
+
+              ElementPlus.ElNotification({
+                title: '模具已清出 (已存入云端冷静暂存箱)',
+                message: `已清空 ${targetList.length} 个柜位。资料已安全暂存在云端，全厂任意电脑均可在【云端冷静暂存箱】随时一键撤销还原。`,
+                type: 'warning',
+                duration: 6000
+              });
+            } catch (e) {
+              ElementPlus.ElMessage.error('腾空失败: ' + e.message);
+            } finally {
+              submitting.value = false;
+            }
           };
 
+          // 从云端回收站撤销还原回原柜位
+          const restoreMoldFromRecycle = async (item) => {
+            submitting.value = true;
+            try {
+              const targetMold = molds.value.find(m => String(m.id) === String(item.mold_id) || String(m.mold_code) === String(item.mold_code));
+              if (!targetMold) {
+                throw new Error(`未找到原 #${item.mold_code} 号柜位，可能柜位已被调整`);
+              }
+
+              if (targetMold.status !== '空置') {
+                return ElementPlus.ElMessageBox.alert(
+                  `原 #${item.mold_code} 号柜位当前已被其他模具【${targetMold.product_name}】占用，无法直接还原。如需还原请先腾出该柜位。`,
+                  '无法还原'
+                );
+              }
+
+              const restorePayload = {
+                id: targetMold.id,
+                mold_code: targetMold.mold_code,
+                customer_name: item.customer_name,
+                product_name: item.product_name,
+                material_thickness: item.material_thickness,
+                remarks: item.remarks,
+                product_img_url: item.product_img_url,
+                mold_img_url: item.mold_img_url,
+                cad_file_url: item.cad_file_url,
+                stp_file_url: item.stp_file_url,
+                status: '在库'
+              };
+
+              const { error } = await dbClient.from('molds').upsert(restorePayload);
+              if (error) throw error;
+
+              const opName = user.value ? (user.value.email.split('@')[0] || '') : '管理员';
+              await dbClient.from('mold_logs').insert([{
+                mold_id: targetMold.id,
+                action_type: '冷静期撤销恢复',
+                operator: opName,
+                remarks: `从云端冷静暂存箱中成功撤销并恢复模具 [${item.product_name}]`
+              }]);
+
+              // 从云端回收站删除该条记录
+              await dbClient.from('mold_recycle_bin').delete().eq('id', item.id);
+
+              ElementPlus.ElMessage.success(`模具【${item.product_name}】已成功还原回 #${targetMold.mold_code} 号抽屉！`);
+              await fetchData();
+            } catch (err) {
+              ElementPlus.ElMessage.error('还原失败: ' + err.message);
+            } finally {
+              submitting.value = false;
+            }
+          };
+
+          const permanentlyRemoveFromRecycle = async (recycleId) => {
+            try {
+              const { error } = await dbClient.from('mold_recycle_bin').delete().eq('id', recycleId);
+              if (error) throw error;
+              ElementPlus.ElMessage.info('已彻底从云端移除该备份');
+              await fetchData();
+            } catch (e) {
+              ElementPlus.ElMessage.error('删除失败: ' + e.message);
+            }
+          };
+
+          const clearAllRecycleBin = () => {
+            ElementPlus.ElMessageBox.confirm('确定要彻底清空云端冷静暂存箱吗？清空后将无法跨设备撤回！', '提示', { type: 'warning' })
+              .then(async () => {
+                submitting.value = true;
+                try {
+                  const { error } = await dbClient.from('mold_recycle_bin').delete().neq('mold_code', '__NONE__');
+                  if (error) throw error;
+                  ElementPlus.ElMessage.success('云端回收箱已清空');
+                  await fetchData();
+                } catch (e) {
+                  ElementPlus.ElMessage.error('清空失败: ' + e.message);
+                } finally {
+                  submitting.value = false;
+                }
+              }).catch(() => {});
+          };
+
+          // 仅保留管理员登录逻辑（完全关闭前台注册）
           const handleLogin = async () => {
-            if (!authForm.value.email || !authForm.value.password) return ElementPlus.ElMessage.error('请输入邮箱和密码');
+            if (!authForm.value.email || !authForm.value.password) return ElementPlus.ElMessage.error('请输入管理员邮箱和密码');
             authLoading.value = true;
             try {
               const { data, error } = await dbClient.auth.signInWithPassword({
@@ -1874,28 +2274,13 @@
               });
               if (error) throw error;
               user.value = data.user;
+              if (rememberAccount.value) {
+                localStorage.setItem('SHY_SAVED_EMAIL', authForm.value.email);
+              }
+              ElementPlus.ElMessage.success('登录成功，正在同步中控数据...');
               fetchData();
             } catch (err) {
               ElementPlus.ElMessage.error('登录失败: ' + err.message);
-            } finally {
-              authLoading.value = false;
-            }
-          };
-
-          const handleRegister = async () => {
-            if (!authForm.value.email || !authForm.value.password) return ElementPlus.ElMessage.error('请输入邮箱和密码');
-            authLoading.value = true;
-            try {
-              const { data, error } = await dbClient.auth.signUp({
-                email: authForm.value.email,
-                password: authForm.value.password,
-              });
-              if (error) throw error;
-              ElementPlus.ElMessage.success('注册成功并登录！');
-              user.value = data.user;
-              fetchData();
-            } catch (err) {
-              ElementPlus.ElMessage.error('注册失败: ' + err.message);
             } finally {
               authLoading.value = false;
             }
@@ -1906,6 +2291,7 @@
             user.value = null;
             molds.value = [];
             logs.value = [];
+            recycleBin.value = [];
             batchClearMode.value = false;
             selectedDrawerIds.value = [];
           };
@@ -1920,6 +2306,10 @@
 
               const { data: logData, error: lErr } = await dbClient.from('mold_logs').select('*').order('action_time', { ascending: false });
               if (!lErr) logs.value = logData || [];
+
+              // 同步云端回收站数据（跨电脑多人共享）
+              const { data: recData, error: rErr } = await dbClient.from('mold_recycle_bin').select('*').order('deleted_at', { ascending: false });
+              if (!rErr) recycleBin.value = recData || [];
             } catch (err) {
               ElementPlus.ElMessage.error('读取后端数据失败: ' + (err.message || '网络连接受阻'));
             } finally {
@@ -2041,7 +2431,6 @@
 
                 if (error) {
                   ElementPlus.ElMessage.error(`文件 [${f.name}] 上传失败: ${error.message}`);
-                  console.error('Storage Upload Error Detail:', error);
                   continue;
                 }
 
@@ -2054,7 +2443,6 @@
                 }
               } catch (e) {
                 ElementPlus.ElMessage.error(`上传异常: ${e.message}`);
-                console.error('Upload Exception:', e);
               }
             }
             return results;
@@ -2209,10 +2597,7 @@
 
             try {
               const currentItem = molds.value.find(m => m.id === targetId);
-              const payload = {
-                ...currentItem,
-                status: nextStatus
-              };
+              const payload = { ...currentItem, status: nextStatus };
 
               const { error } = await dbClient.from('molds').upsert(payload);
               if (error) throw new Error(error.message);
@@ -2234,19 +2619,16 @@
             }
           };
 
-          // 核心下载文件为 Blob 辅助函数
           const downloadFileBlob = async (url) => {
             try {
               const res = await fetch(url);
               if (!res.ok) throw new Error(`HTTP ${res.status}`);
               return await res.blob();
             } catch (err) {
-              console.warn('下载文件失败:', url, err);
               return null;
             }
           };
 
-          // 升级优化后的按“柜号/分类/文件”多层结构全景导出
           const exportZipBackup = async () => {
             exporting.value = true;
             loading.value = true;
@@ -2257,7 +2639,6 @@
               const moldList = sortedAllMolds.value;
               const totalMolds = moldList.length;
 
-              // 1. 根目录生成一份汇总 Excel 表，方便全局宏观盘点
               const summaryDrawers = moldList.map(m => ({
                 "抽屉编号": `#${m.mold_code} 号柜`,
                 "当前状态": m.status,
@@ -2282,16 +2663,13 @@
               const summaryBuf = XLSX.write(summaryWb, { bookType: 'xlsx', type: 'array' });
               zip.file("00_全景抽屉模具总览表.xlsx", summaryBuf);
 
-              // 2. 遍历每个抽屉，构建第一层柜号文件夹
               for (let i = 0; i < totalMolds; i++) {
                 const m = moldList[i];
                 loadingText.value = `正在打包 [ #${m.mold_code} 号柜 ] 资料与附件 (进度 ${i + 1}/${totalMolds})...`;
 
-                // 第一层文件夹：柜子编号
                 const drawerFolderName = `#${m.mold_code}号抽屉柜`;
                 const drawerFolder = zip.folder(drawerFolderName);
 
-                // 第二层：模具信息 (用表格记录抽屉编号、客户名称、产品名称、材料及厚度、备注)
                 const moldInfoSheetData = [{
                   "抽屉编号": `#${m.mold_code}`,
                   "客户名称": m.customer_name || '',
@@ -2306,7 +2684,6 @@
                 const moldInfoBuf = XLSX.write(moldInfoWb, { bookType: 'xlsx', type: 'array' });
                 drawerFolder.file("模具信息.xlsx", moldInfoBuf);
 
-                // 第二层：日志 (用记事本 TXT 记录)
                 const drawerLogs = logs.value.filter(l => l.mold_id === m.id);
                 let logContent = `======================================================================\r\n`;
                 logContent += `【抽屉编号】：#${m.mold_code} 号柜\r\n`;
@@ -2325,7 +2702,6 @@
                 }
                 drawerFolder.file("日志.txt", logContent);
 
-                // 辅助函数：并发拉取并保存实际文件到第二层子文件夹
                 const saveFilesToSubFolder = async (fileList, folderName) => {
                   if (!fileList || fileList.length === 0) return;
                   const targetFolder = drawerFolder.folder(folderName);
@@ -2335,7 +2711,6 @@
                     const blob = await downloadFileBlob(fObj.url);
                     if (blob) {
                       let fileName = fObj.name || `文件_${fIdx + 1}`;
-                      // 解决重名冲突
                       if (usedNames[fileName]) {
                         usedNames[fileName]++;
                         const dotIdx = fileName.lastIndexOf('.');
@@ -2354,7 +2729,6 @@
                   await Promise.all(tasks);
                 };
 
-                // 第二层/最后一层：下载并写入【产品图片】、【模具实物图】、【CAD图纸】、【3D图纸】
                 await Promise.all([
                   saveFilesToSubFolder(getFiles(m.product_img_url), "产品图片"),
                   saveFilesToSubFolder(getFiles(m.mold_img_url), "模具实物图"),
@@ -2373,7 +2747,6 @@
               saveAs(content, `三合一五金ERP_抽屉柜矩阵全景备份_${new Date().toISOString().slice(0, 10)}.zip`);
               ElementPlus.ElMessage.success('全景分级归档数据导出成功！');
             } catch (e) {
-              console.error('全景导出异常:', e);
               ElementPlus.ElMessage.error('导出失败: ' + e.message);
             } finally {
               loading.value = false;
@@ -2390,6 +2763,11 @@
           };
 
           onMounted(async () => {
+            const savedEmail = localStorage.getItem('SHY_SAVED_EMAIL');
+            if (savedEmail) {
+              authForm.value.email = savedEmail;
+            }
+
             const { data: { session } } = await dbClient.auth.getSession();
             if (session) {
               user.value = session.user;
@@ -2398,13 +2776,18 @@
           });
 
           return {
-            user, authForm, authLoading, handleLogin, handleRegister, handleLogout,
+            user, authForm, authLoading, rememberAccount, handleLogin, handleLogout,
             currentView, rankingTimeRange, molds, logs, loading, loadingText, searchKeyword, filterStatus, currentPage, pageSize,
             sortedAllMolds, filteredTotalMolds, paginatedMolds,
             inStockCount, outStockCount, emptyStockCount, deadMolds,
             currentMaxDrawerNo,
             batchClearMode, selectedDrawerIds, toggleBatchClearMode, handleCardClick,
-            selectAllOccupiedOnPage, clearDrawerSelection, executeBatchClearDrawers, openSingleClearDialog,
+            selectAllOccupiedOnPage, clearDrawerSelection,
+            // 云端冷静期与回收箱相关
+            showCooldownDialog, showRecycleDrawer, cooldownTargetMolds, cooldownRemainSeconds,
+            cooldownInputWord, cooldownExpectedWord, cooldownModeText, recycleBin,
+            openSingleClearCooldownDialog, openBatchClearCooldownDialog, closeCooldownDialog,
+            executeConfirmedClear, restoreMoldFromRecycle, permanentlyRemoveFromRecycle, clearAllRecycleBin,
             rankingData, maxOutCount, getLatestOutTime, getLatestInTime, activeDrawerLogs,
             showDetailDialog, showPutDialog, showEditDialog, showLogDialog, showDeadDrawer,
             showAuditLogModal, logFilterDrawerId, logFilterDateRange, logFilterAction, logSearchKeyword,
